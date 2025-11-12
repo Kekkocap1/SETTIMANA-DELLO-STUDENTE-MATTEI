@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accesso - Settimana dello Studente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Settimana dello Studente 2025</h1>
+    <h2>ITCG “E. Mattei” Casamicciola Terme</h2>
+    <p>Inserisci i tuoi dati per accedere</p>
+  </header>
+
+  <main class="login-container">
+    <form id="loginForm">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" placeholder="Inserisci il tuo nome" required>
+
+      <label for="cognome">Cognome:</label>
+      <input type="text" id="cognome" placeholder="Inserisci il tuo cognome" required>
+
+      <label for="classe">Classe:</label>
+      <input type="text" id="classe" placeholder="Es. 3A INF" required>
+
+      <button type="submit">Entra</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 ITCG “E. Mattei” Casamicciola Terme</p>
+  </footer>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      const cognome = document.getElementById("cognome").value.trim();
+      const classe = document.getElementById("classe").value.trim();
+
+      if (!nome || !cognome || !classe) {
+        alert("Compila tutti i campi!");
+        return;
+      }
+
+      // Salva i dati nel browser
+      localStorage.setItem("studente_nome", nome);
+      localStorage.setItem("studente_cognome", cognome);
+      localStorage.setItem("studente_classe", classe);
+
+      // Vai alla pagina dei piani
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
+
